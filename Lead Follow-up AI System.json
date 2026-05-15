@@ -1,5 +1,4 @@
 {
-  "name": "Lead Follow-up AI System",
   "nodes": [
     {
       "parameters": {
@@ -53,7 +52,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "lead-capture",
+        "path": "{{WEBHOOK_PATH}}",
         "options": {}
       },
       "id": "1030fc58-bb21-4645-89ab-76606aa23534",
@@ -71,14 +70,14 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E",
+          "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
@@ -150,8 +149,8 @@
       "typeVersion": 4.7,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "m5nJSDOlmxk0sA00",
-          "name": "Google Sheets account"
+          "id": "{{GOOGLESHEETSOAUTH2API_ID}}",
+          "name": "{{GOOGLESHEETSOAUTH2API_NAME}}"
         }
       }
     },
@@ -173,7 +172,7 @@
     },
     {
       "parameters": {
-        "sendTo": "={{ $('Set Lead Fields').item.json.email }}",
+        "sendTo": "{{YOUR_EMAIL}}",
         "subject": "Thanks for contacting us",
         "message": "={{ $json.output }}",
         "options": {
@@ -191,8 +190,8 @@
       "webhookId": "b865eadb-663a-45cc-b033-00534ea1a196",
       "credentials": {
         "gmailOAuth2": {
-          "id": "MzCK1wWoAgbK5skR",
-          "name": "Gmail account"
+          "id": "{{GMAILOAUTH2_ID}}",
+          "name": "{{GMAILOAUTH2_NAME}}"
         }
       }
     },
@@ -200,14 +199,14 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E",
+          "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
@@ -232,8 +231,8 @@
       "name": "Check Lead Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "m5nJSDOlmxk0sA00",
-          "name": "Google Sheets account"
+          "id": "{{GOOGLESHEETSOAUTH2API_ID}}",
+          "name": "{{GOOGLESHEETSOAUTH2API_NAME}}"
         }
       }
     },
@@ -280,14 +279,14 @@
       "name": "Generate Follow-up Email",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        960,
+        896,
         -160
       ],
       "typeVersion": 3.1
     },
     {
       "parameters": {
-        "sendTo": "={{ $('Set Lead Fields').item.json.email }}",
+        "sendTo": "{{YOUR_EMAIL}}",
         "subject": "Following up on your request",
         "message": "={{ $json.output }}",
         "options": {
@@ -298,22 +297,22 @@
       "name": "Send Follow-up Reminder",
       "type": "n8n-nodes-base.gmail",
       "position": [
-        1408,
+        1328,
         -160
       ],
       "typeVersion": 2.2,
       "webhookId": "8c130010-4200-4eea-8a6f-d070dc2920ef",
       "credentials": {
         "gmailOAuth2": {
-          "id": "MzCK1wWoAgbK5skR",
-          "name": "Gmail account"
+          "id": "{{GMAILOAUTH2_ID}}",
+          "name": "{{GMAILOAUTH2_NAME}}"
         }
       }
     },
     {
       "parameters": {
         "amount": 1,
-        "unit": "minutes"
+        "unit": "hours"
       },
       "id": "a3629b23-94ee-4ace-a752-4292aa9ff162",
       "name": "Wait 1 Hour Before Follow-up",
@@ -327,13 +326,13 @@
     },
     {
       "parameters": {
-        "amount": 1,
-        "unit": "minutes"
+        "amount": 24,
+        "unit": "hours"
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1616,
+        1552,
         -160
       ],
       "id": "edfb8907-90df-425e-862e-3da0fdf020b4",
@@ -344,14 +343,14 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E",
+          "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
@@ -369,15 +368,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1824,
+        1760,
         -160
       ],
       "id": "eb817a86-5b08-4c75-9c17-5ce46d1321b1",
       "name": "Check Lead Status After 24 Hours",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "m5nJSDOlmxk0sA00",
-          "name": "Google Sheets account"
+          "id": "{{GOOGLESHEETSOAUTH2API_ID}}",
+          "name": "{{GOOGLESHEETSOAUTH2API_NAME}}"
         }
       }
     },
@@ -396,8 +395,8 @@
       "name": "Groq LLM",
       "credentials": {
         "groqApi": {
-          "id": "2tvWMKzbkfImX4Ri",
-          "name": "Groq account"
+          "id": "{{GROQAPI_ID}}",
+          "name": "{{GROQAPI_NAME}}"
         }
       }
     },
@@ -409,15 +408,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        960,
+        896,
         208
       ],
       "id": "6da973b3-547a-442d-a807-0e52ade9782e",
       "name": "Groq LLM Follow-up",
       "credentials": {
         "groqApi": {
-          "id": "2tvWMKzbkfImX4Ri",
-          "name": "Groq account"
+          "id": "{{GROQAPI_ID}}",
+          "name": "{{GROQAPI_NAME}}"
         }
       }
     },
@@ -448,7 +447,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2032,
+        1984,
         -160
       ],
       "id": "86f16482-bac3-4432-96f6-1a543c4f88f6",
@@ -456,7 +455,7 @@
     },
     {
       "parameters": {
-        "sendTo": "jagadeeshs4779@gmail.com",
+        "sendTo": "{{YOUR_EMAIL}}",
         "subject": "=Lead Escalation: {{$('Set Lead Fields').item.json.name}} has not responded",
         "emailType": "text",
         "message": "=Hi Jagadeesh,  A lead has still not responded after the acknowledgment and follow-up emails.  Lead Details:  Name: {{ $('Set Lead Fields').item.json.name }} Email: {{ $('Set Lead Fields').item.json.email }} Service: {{ $('Set Lead Fields').item.json.service }} Submitted At: {{ $('Set Lead Fields').item.json.created_at }}  Please follow up manually.  Best regards, Lead Follow-up Automation",
@@ -467,7 +466,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
       "position": [
-        2368,
+        2272,
         -176
       ],
       "id": "f416b620-4b88-447e-bf4d-007f6dbbbec2",
@@ -475,13 +474,12 @@
       "webhookId": "e3838174-6b7b-40c1-ac3e-875d292a2e09",
       "credentials": {
         "gmailOAuth2": {
-          "id": "MzCK1wWoAgbK5skR",
-          "name": "Gmail account"
+          "id": "{{GMAILOAUTH2_ID}}",
+          "name": "{{GMAILOAUTH2_NAME}}"
         }
       }
     }
   ],
-  "pinData": {},
   "connections": {
     "Set Lead Fields": {
       "main": [
@@ -605,6 +603,17 @@
         ]
       ]
     },
+    "Check Lead Status After 24 Hours": {
+      "main": [
+        [
+          {
+            "node": "Did Customer Respond After 24 Hours?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Groq LLM": {
       "ai_languageModel": [
         [
@@ -627,17 +636,6 @@
         ]
       ]
     },
-    "Check Lead Status After 24 Hours": {
-      "main": [
-        [
-          {
-            "node": "Did Customer Respond After 24 Hours?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Did Customer Respond After 24 Hours?": {
       "main": [
         [
@@ -650,16 +648,9 @@
       ]
     }
   },
-  "active": false,
-  "settings": {
-    "executionOrder": "v1",
-    "binaryMode": "separate"
-  },
-  "versionId": "50ccf071-700b-4bc5-8a9f-d2a78ae9144a",
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "b54ab3f2387a08ad41459dc70b5fa6c6b62400d3cba35fe5bdc357ca66bc9f6b"
-  },
-  "id": "s4MEYwql1yBW0VEm",
-  "tags": []
+  }
 }
