@@ -1,0 +1,93 @@
+# =====================================
+# Environment files
+# =====================================
+.env
+.env.local
+.env.*
+*.env
+
+# =====================================
+# n8n secrets / credentials
+# =====================================
+credentials.json
+n8n-credentials.json
+*.sqlite
+database.sqlite
+*.db
+
+# Local n8n exports (private)
+workflow-private.json
+workflow-local.json
+*.backup.json
+
+# =====================================
+# OAuth / API secrets
+# =====================================
+google-credentials.json
+gmail-credentials.json
+service-account.json
+oauth.json
+
+# =====================================
+# Logs
+# =====================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =====================================
+# Node.js
+# =====================================
+node_modules/
+package-lock.json
+
+# =====================================
+# Python cache (if scripts added later)
+# =====================================
+__pycache__/
+*.pyc
+
+# =====================================
+# IDE files
+# =====================================
+.vscode/
+.idea/
+
+# =====================================
+# OS files
+# =====================================
+.DS_Store
+Thumbs.db
+
+# =====================================
+# Temp files
+# =====================================
+tmp/
+temp/
+.cache/
+
+# =====================================
+# Local exports / backups
+# =====================================
+backup/
+exports/
+
+# =====================================
+# Screenshots (optional)
+# Uncomment if you don't want screenshots tracked
+# screenshots/
+# =====================================
+
+# =====================================
+# Personal notes
+# =====================================
+notes.txt
+draft.md
+
+# =====================================
+# Generated workflow files
+# =====================================
+workflow-test.json
+workflow-debug.json
