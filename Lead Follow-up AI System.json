@@ -43,10 +43,7 @@
       "id": "2ff38091-282d-48bb-aaa4-c78135f932c3",
       "name": "Set Lead Fields",
       "type": "n8n-nodes-base.set",
-      "position": [
-        -608,
-        -144
-      ],
+      "position": [-608, -144],
       "typeVersion": 3.4
     },
     {
@@ -58,12 +55,9 @@
       "id": "1030fc58-bb21-4645-89ab-76606aa23534",
       "name": "Lead Capture Webhook",
       "type": "n8n-nodes-base.webhook",
-      "position": [
-        -816,
-        -144
-      ],
+      "position": [-816, -144],
       "typeVersion": 2.1,
-      "webhookId": "704edf93-88eb-4913-81e9-f582aa8d7feb"
+      "webhookId": "{{WEBHOOK_ID_1}}"
     },
     {
       "parameters": {
@@ -73,66 +67,25 @@
           "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "sheetName": {
           "__rl": true,
           "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "columns": {
           "mappingMode": "autoMapInputData",
           "value": {},
           "matchingColumns": [],
           "schema": [
-            {
-              "id": "name",
-              "displayName": "name",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "email",
-              "displayName": "email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "service",
-              "displayName": "service",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "status",
-              "displayName": "status",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "created_at",
-              "displayName": "created_at",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            }
+            {"id": "name", "displayName": "name", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "service", "displayName": "service", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "status", "displayName": "status", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true, "removed": false},
+            {"id": "created_at", "displayName": "created_at", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true}
           ],
           "attemptToConvertTypes": false,
           "convertFieldsToString": false
@@ -142,10 +95,7 @@
       "id": "bb887d0a-b823-44ab-90cd-17ec2edadf97",
       "name": "Store Lead in CRM",
       "type": "n8n-nodes-base.googleSheets",
-      "position": [
-        -432,
-        -144
-      ],
+      "position": [-432, -144],
       "typeVersion": 4.7,
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -164,10 +114,7 @@
       "id": "60a4b14a-1393-4636-b0e4-75edd19dc155",
       "name": "Generate Acknowledgment Email",
       "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        -256,
-        -144
-      ],
+      "position": [-256, -144],
       "typeVersion": 3.1
     },
     {
@@ -182,12 +129,9 @@
       "id": "8963a3b4-22d8-4115-9d76-0b7a8d29034d",
       "name": "Send Acknowledgment Email",
       "type": "n8n-nodes-base.gmail",
-      "position": [
-        32,
-        -144
-      ],
+      "position": [32, -144],
       "typeVersion": 2.2,
-      "webhookId": "b865eadb-663a-45cc-b033-00534ea1a196",
+      "webhookId": "{{WEBHOOK_ID_2}}",
       "credentials": {
         "gmailOAuth2": {
           "id": "{{GMAILOAUTH2_ID}}",
@@ -202,14 +146,14 @@
           "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "sheetName": {
           "__rl": true,
           "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "filtersUI": {
           "values": [
@@ -223,10 +167,7 @@
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
-      "position": [
-        432,
-        -144
-      ],
+      "position": [432, -144],
       "id": "11bc319b-10b2-4383-a1d9-6222c41c2bb7",
       "name": "Check Lead Status",
       "credentials": {
@@ -263,10 +204,7 @@
       "id": "e5fda20a-3d71-4cc3-b8f1-11860f72fae5",
       "name": "Did Customer Respond?",
       "type": "n8n-nodes-base.if",
-      "position": [
-        624,
-        -144
-      ],
+      "position": [624, -144],
       "typeVersion": 2.3
     },
     {
@@ -278,10 +216,7 @@
       "id": "f6aaae05-bfdb-4407-8dd1-9161690ab316",
       "name": "Generate Follow-up Email",
       "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        896,
-        -160
-      ],
+      "position": [896, -160],
       "typeVersion": 3.1
     },
     {
@@ -296,12 +231,9 @@
       "id": "8e339afd-8553-46a1-8fde-48105f9a8fd7",
       "name": "Send Follow-up Reminder",
       "type": "n8n-nodes-base.gmail",
-      "position": [
-        1328,
-        -160
-      ],
+      "position": [1328, -160],
       "typeVersion": 2.2,
-      "webhookId": "8c130010-4200-4eea-8a6f-d070dc2920ef",
+      "webhookId": "{{WEBHOOK_ID_3}}",
       "credentials": {
         "gmailOAuth2": {
           "id": "{{GMAILOAUTH2_ID}}",
@@ -317,12 +249,9 @@
       "id": "a3629b23-94ee-4ace-a752-4292aa9ff162",
       "name": "Wait 1 Hour Before Follow-up",
       "type": "n8n-nodes-base.wait",
-      "position": [
-        224,
-        -144
-      ],
+      "position": [224, -144],
       "typeVersion": 1.1,
-      "webhookId": "ad464cce-475a-4708-9323-9049e0fbf9cc"
+      "webhookId": "{{WEBHOOK_ID_4}}"
     },
     {
       "parameters": {
@@ -331,13 +260,10 @@
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [
-        1552,
-        -160
-      ],
+      "position": [1552, -160],
       "id": "edfb8907-90df-425e-862e-3da0fdf020b4",
       "name": "Wait 24 Hours Before Escalation",
-      "webhookId": "28304529-f29d-4ac7-99dc-02948818e82a"
+      "webhookId": "{{WEBHOOK_ID_5}}"
     },
     {
       "parameters": {
@@ -346,14 +272,14 @@
           "value": "{{DOCUMENTID}}",
           "mode": "list",
           "cachedResultName": "Lead Tracker",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit?usp=drivesdk"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "sheetName": {
           "__rl": true,
           "value": "{{SHEETNAME}}",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11PKEbTq98YE__EjmcfYqrNamLupYoEq9f950AyVEz5E/edit#gid=0"
+          "cachedResultUrl": "{{REPLACE_LOCALLY}}"
         },
         "filtersUI": {
           "values": [
@@ -367,10 +293,7 @@
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
-      "position": [
-        1760,
-        -160
-      ],
+      "position": [1760, -160],
       "id": "eb817a86-5b08-4c75-9c17-5ce46d1321b1",
       "name": "Check Lead Status After 24 Hours",
       "credentials": {
@@ -387,10 +310,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
-      "position": [
-        -256,
-        192
-      ],
+      "position": [-256, 192],
       "id": "a33df80e-0092-431e-8980-9c6e6d3ab065",
       "name": "Groq LLM",
       "credentials": {
@@ -407,10 +327,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
-      "position": [
-        896,
-        208
-      ],
+      "position": [896, 208],
       "id": "6da973b3-547a-442d-a807-0e52ade9782e",
       "name": "Groq LLM Follow-up",
       "credentials": {
@@ -446,10 +363,7 @@
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
-      "position": [
-        1984,
-        -160
-      ],
+      "position": [1984, -160],
       "id": "86f16482-bac3-4432-96f6-1a543c4f88f6",
       "name": "Did Customer Respond After 24 Hours?"
     },
@@ -465,13 +379,10 @@
       },
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
-      "position": [
-        2272,
-        -176
-      ],
+      "position": [2272, -176],
       "id": "f416b620-4b88-447e-bf4d-007f6dbbbec2",
       "name": "Send Escalation Alert",
-      "webhookId": "e3838174-6b7b-40c1-ac3e-875d292a2e09",
+      "webhookId": "{{WEBHOOK_ID_6}}",
       "credentials": {
         "gmailOAuth2": {
           "id": "{{GMAILOAUTH2_ID}}",
@@ -482,175 +393,54 @@
   ],
   "connections": {
     "Set Lead Fields": {
-      "main": [
-        [
-          {
-            "node": "Store Lead in CRM",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Store Lead in CRM", "type": "main", "index": 0}]]
     },
     "Lead Capture Webhook": {
-      "main": [
-        [
-          {
-            "node": "Set Lead Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Set Lead Fields", "type": "main", "index": 0}]]
     },
     "Store Lead in CRM": {
-      "main": [
-        [
-          {
-            "node": "Generate Acknowledgment Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Generate Acknowledgment Email", "type": "main", "index": 0}]]
     },
     "Generate Acknowledgment Email": {
-      "main": [
-        [
-          {
-            "node": "Send Acknowledgment Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Send Acknowledgment Email", "type": "main", "index": 0}]]
     },
     "Send Acknowledgment Email": {
-      "main": [
-        [
-          {
-            "node": "Wait 1 Hour Before Follow-up",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Wait 1 Hour Before Follow-up", "type": "main", "index": 0}]]
     },
     "Check Lead Status": {
-      "main": [
-        [
-          {
-            "node": "Did Customer Respond?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Did Customer Respond?", "type": "main", "index": 0}]]
     },
     "Did Customer Respond?": {
-      "main": [
-        [
-          {
-            "node": "Generate Follow-up Email",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        []
-      ]
+      "main": [[{"node": "Generate Follow-up Email", "type": "main", "index": 0}], []]
     },
     "Generate Follow-up Email": {
-      "main": [
-        [
-          {
-            "node": "Send Follow-up Reminder",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Send Follow-up Reminder", "type": "main", "index": 0}]]
     },
     "Send Follow-up Reminder": {
-      "main": [
-        [
-          {
-            "node": "Wait 24 Hours Before Escalation",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Wait 24 Hours Before Escalation", "type": "main", "index": 0}]]
     },
     "Wait 1 Hour Before Follow-up": {
-      "main": [
-        [
-          {
-            "node": "Check Lead Status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Check Lead Status", "type": "main", "index": 0}]]
     },
     "Wait 24 Hours Before Escalation": {
-      "main": [
-        [
-          {
-            "node": "Check Lead Status After 24 Hours",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Check Lead Status After 24 Hours", "type": "main", "index": 0}]]
     },
     "Check Lead Status After 24 Hours": {
-      "main": [
-        [
-          {
-            "node": "Did Customer Respond After 24 Hours?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Did Customer Respond After 24 Hours?", "type": "main", "index": 0}]]
     },
     "Groq LLM": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Generate Acknowledgment Email",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
+      "ai_languageModel": [[{"node": "Generate Acknowledgment Email", "type": "ai_languageModel", "index": 0}]]
     },
     "Groq LLM Follow-up": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Generate Follow-up Email",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
+      "ai_languageModel": [[{"node": "Generate Follow-up Email", "type": "ai_languageModel", "index": 0}]]
     },
     "Did Customer Respond After 24 Hours?": {
-      "main": [
-        [
-          {
-            "node": "Send Escalation Alert",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Send Escalation Alert", "type": "main", "index": 0}]]
     }
   },
   "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "b54ab3f2387a08ad41459dc70b5fa6c6b62400d3cba35fe5bdc357ca66bc9f6b"
+    "instanceId": "{{N8N_INSTANCE_ID}}"
   }
 }
